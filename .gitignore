@@ -1,1 +1,4 @@
 Portfolio网站设计规划.zip
+node_modules/
+dist/
+.astro/

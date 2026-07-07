@@ -1,0 +1,31 @@
+---
+export interface Props {
+  active: 'home' | 'opus' | 'two' | 'three' | 'about';
+  accentColor?: string;
+}
+
+const { active, accentColor = 'oklch(70% 0.17 45)' } = Astro.props;
+const base = import.meta.env.BASE_URL;
+
+const links = [
+  { key: 'home', href: base, label: 'Home' },
+  { key: 'opus', href: `${base}projects/opus-clip`, label: 'Opus Clip' },
+  { key: 'two', href: `${base}projects/project-two`, label: 'Project 02' },
+  { key: 'three', href: `${base}projects/project-three`, label: 'Project 03' },
+  { key: 'about', href: `${base}about`, label: 'About' },
+];
+---
+<nav style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:22px 48px;background:oklch(97% 0.014 75 / 0.9);backdrop-filter:blur(8px);border-bottom:1px solid oklch(88% 0.02 60)">
+  <a href={base} style="font-family:'Newsreader',serif;font-size:21px;font-weight:600;text-decoration:none;letter-spacing:0.01em">Jarrett Li</a>
+  <div style="display:flex;gap:34px;align-items:center;font-size:14px;font-weight:500">
+    {links.map((link) => (
+      <a
+        href={link.href}
+        class={link.key === active ? '' : 'hover-orange'}
+        style={`text-decoration:none;color:${link.key === active ? accentColor : 'oklch(48% 0.02 55)'}`}
+      >
+        {link.label}
+      </a>
+    ))}
+  </div>
+</nav>

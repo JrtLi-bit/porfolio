@@ -1,0 +1,79 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import Placeholder from '../components/Placeholder.astro';
+
+const skillGroups = [
+  { title: 'Design', items: ['UX Research', 'Interaction Design', 'Prototyping', 'Visual Design'] },
+  { title: 'Tools', items: ['Figma', 'Framer', 'Adobe CC'] },
+  { title: 'Practice', items: ['Usability Testing', 'Design Systems', 'Storytelling'] },
+];
+
+const experience = [
+  { dates: '2025 — Now', role: 'Placeholder role', company: 'Placeholder company' },
+  { dates: '2023 — 2025', role: 'Placeholder role', company: 'Placeholder company' },
+  { dates: '2021 — 2023', role: 'Placeholder role', company: 'Placeholder company' },
+];
+---
+<Layout title="About — Jarrett Li" screenLabel="About">
+  <Nav active="about" />
+
+  <header style="padding:96px 48px 64px;max-width:1000px;margin:0 auto;width:100%;box-sizing:border-box;display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:center">
+    <div style="width:100%;aspect-ratio:4/5;border-radius:18px;overflow:hidden;border:1px solid oklch(88% 0.02 60)">
+      <Placeholder caption="Portrait photo" />
+    </div>
+    <div>
+      <p style="font-family:'Manrope',sans-serif;font-size:14px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:oklch(54% 0.12 250);margin:0 0 20px">About</p>
+      <h1 style="font-family:'Newsreader',serif;font-weight:500;font-size:42px;line-height:1.15;margin:0 0 24px">Jarrett Li</h1>
+      <p style="font-family:'Newsreader',serif;font-style:italic;font-size:20px;line-height:1.6;color:oklch(38% 0.02 55);margin:0 0 16px">I am a versatile designer dedicated to creating immersive, visually stunning worlds.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:oklch(30% 0.02 50);margin:0">[Placeholder — full bio coming soon] I bridge the gap between storytelling and experience design to craft digital spaces that prioritize user happiness and emotional connection. Add background, career path, and what drives your design practice here.</p>
+    </div>
+  </header>
+
+  <section style="padding:0 48px 64px;max-width:1000px;margin:0 auto;width:100%;box-sizing:border-box">
+    <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:24px;margin:0 0 28px;color:oklch(70% 0.17 45)">Skills & Tools</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+      {skillGroups.map((group) => (
+        <div style="border:1px solid oklch(88% 0.02 60);border-radius:14px;padding:24px;background:oklch(94% 0.02 70 / 0.5)">
+          <p style="font-size:13px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:oklch(44% 0.12 250);margin:0 0 14px">{group.title}</p>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            {group.items.map((item) => (
+              <p style="font-size:14.5px;margin:0;color:oklch(30% 0.02 50)">{item}</p>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section style="padding:0 48px 64px;max-width:1000px;margin:0 auto;width:100%;box-sizing:border-box">
+    <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:24px;margin:0 0 24px;color:oklch(70% 0.17 45)">Experience</h2>
+    <div style="display:flex;flex-direction:column;gap:0">
+      {experience.map((job) => (
+        <div style="display:grid;grid-template-columns:180px 1fr;gap:24px;padding:22px 0;border-top:1px solid oklch(88% 0.02 60)">
+          <p style="font-size:13.5px;color:oklch(48% 0.02 55);margin:0">{job.dates}</p>
+          <div>
+            <p style="font-size:16px;font-weight:600;margin:0 0 4px">{job.role}</p>
+            <p style="font-size:14px;color:oklch(48% 0.02 55);margin:0">{job.company} — placeholder description</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section style="padding:0 48px 96px;max-width:1000px;margin:0 auto;width:100%;box-sizing:border-box">
+    <div style="border:1px solid oklch(88% 0.02 60);border-radius:18px;padding:48px;background:oklch(94% 0.02 70 / 0.5);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px">
+      <div>
+        <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:26px;margin:0 0 8px">Let's work together</h2>
+        <p style="font-size:15px;color:oklch(48% 0.02 55);margin:0">Open to new projects and collaborations.</p>
+      </div>
+      <div style="display:flex;gap:16px">
+        <a href="#" class="btn-primary" style="text-decoration:none;padding:12px 24px;border-radius:999px;background:oklch(70% 0.17 45);color:oklch(99% 0.01 75);font-size:14px;font-weight:600">Email me</a>
+        <a href="#" class="btn-outline" style="text-decoration:none;padding:12px 24px;border-radius:999px;border:1px solid oklch(24% 0.02 50);color:oklch(24% 0.02 50);font-size:14px;font-weight:600">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer maxWidth="1000px" padding="44px 48px" />
+</Layout>
