@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body{margin:0;background:oklch(97% 0.014 75);}
+    a{color:inherit}
+    ::selection{background:oklch(70% 0.17 45 / 0.25)}
+  </style>
+</helmet>
+
+<div style="width:0;height:0;overflow:hidden;position:absolute"><x-import component-from-global-scope="image-slot" from="./image-slot.js" hint-size="0,0"></x-import></div>
+<div style="min-height:100vh;display:flex;flex-direction:column;font-family:'Manrope',sans-serif;color:oklch(24% 0.02 50)" data-screen-label="About">
+
+  <nav style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:22px 48px;background:oklch(97% 0.014 75 / 0.9);backdrop-filter:blur(8px);border-bottom:1px solid oklch(88% 0.02 60)">
+    <a href="Home.dc.html" style="font-family:'Newsreader',serif;font-size:21px;font-weight:600;text-decoration:none;letter-spacing:0.01em">Jarrett Li</a>
+    <div style="display:flex;gap:34px;align-items:center;font-size:14px;font-weight:500">
+      <a href="Home.dc.html" style="text-decoration:none;color:oklch(48% 0.02 55)" style-hover="color:oklch(70% 0.17 45)">Home</a>
+      <a href="Project-OpusClip.dc.html" style="text-decoration:none;color:oklch(48% 0.02 55)" style-hover="color:oklch(70% 0.17 45)">Opus Clip</a>
+      <a href="Project-Two.dc.html" style="text-decoration:none;color:oklch(48% 0.02 55)" style-hover="color:oklch(70% 0.17 45)">Project 02</a>
+      <a href="Project-Three.dc.html" style="text-decoration:none;color:oklch(48% 0.02 55)" style-hover="color:oklch(70% 0.17 45)">Project 03</a>
+      <a href="About.dc.html" style="text-decoration:none;color:oklch(70% 0.17 45)">About</a>
+    </div>
+  </nav>
+
+  <header style="padding:96px 48px 64px;max-width:1000px;margin:0 auto;width:100%;box-sizing:border-box;display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:center">
+    <div style="width:100%;aspect-ratio:4/5;border-radius:18px;overflow:hidden;border:1px solid oklch(88% 0.02 60)">
+      <image-slot id="about-portrait" shape="rect" placeholder="Portrait photo"></image-slot>
+    </div>
+    <div>
+      <p style="font-family:'Manrope',sans-serif;font-size:14px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:oklch(54% 0.12 250);margin:0 0 20px">About</p>
+      <h1 style="font-family:'Newsreader',serif;font-weight:500;font-size:42px;line-height:1.15;margin:0 0 24px">Jarrett Li</h1>
+      <p style="font-family:'Newsreader',serif;font-style:italic;font-size:20px;line-height:1.6;color:oklch(38% 0.02 55);margin:0 0 16px">I am a versatile designer dedicated to creating immersive, visually stunning worlds.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:oklch(30% 0.02 50);margin:0">[Placeholder — full bio coming soon] I bridge the gap between storytelling and experience design to craft digital spaces that prioritize user happiness and emotional connection. Add background, career path, and what drives your design practice here.</p>
+    </div>
+  </header>
+
+  <section style="padding:0 48px 64px;max-width:1000px;margin:0 auto;width:100%;box-sizing:border-box">
+    <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:24px;margin:0 0 28px;color:oklch(70% 0.17 45)">Skills & Tools</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+      <sc-for list="{{ skillGroups }}" as="group" hint-placeholder-count="3">
+        <div style="border:1px solid oklch(88% 0.02 60);border-radius:14px;padding:24px;background:oklch(94% 0.02 70 / 0.5)">
+          <p style="font-size:13px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:oklch(44% 0.12 250);margin:0 0 14px">{{ group.title }}</p>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <sc-for list="{{ group.items }}" as="item" hint-placeholder-count="3">
+              <p style="font-size:14.5px;margin:0;color:oklch(30% 0.02 50)">{{ item }}</p>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="padding:0 48px 64px;max-width:1000px;margin:0 auto;width:100%;box-sizing:border-box">
+    <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:24px;margin:0 0 24px;color:oklch(70% 0.17 45)">Experience</h2>
+    <div style="display:flex;flex-direction:column;gap:0">
+      <sc-for list="{{ experience }}" as="job" hint-placeholder-count="3">
+        <div style="display:grid;grid-template-columns:180px 1fr;gap:24px;padding:22px 0;border-top:1px solid oklch(88% 0.02 60)">
+          <p style="font-size:13.5px;color:oklch(48% 0.02 55);margin:0">{{ job.dates }}</p>
+          <div>
+            <p style="font-size:16px;font-weight:600;margin:0 0 4px">{{ job.role }}</p>
+            <p style="font-size:14px;color:oklch(48% 0.02 55);margin:0">{{ job.company }} — placeholder description</p>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="padding:0 48px 96px;max-width:1000px;margin:0 auto;width:100%;box-sizing:border-box">
+    <div style="border:1px solid oklch(88% 0.02 60);border-radius:18px;padding:48px;background:oklch(94% 0.02 70 / 0.5);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px">
+      <div>
+        <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:26px;margin:0 0 8px">Let's work together</h2>
+        <p style="font-size:15px;color:oklch(48% 0.02 55);margin:0">Open to new projects and collaborations.</p>
+      </div>
+      <div style="display:flex;gap:16px">
+        <a href="#" style="text-decoration:none;padding:12px 24px;border-radius:999px;background:oklch(70% 0.17 45);color:oklch(99% 0.01 75);font-size:14px;font-weight:600" style-hover="background:oklch(58% 0.16 42)">Email me</a>
+        <a href="#" style="text-decoration:none;padding:12px 24px;border-radius:999px;border:1px solid oklch(24% 0.02 50);color:oklch(24% 0.02 50);font-size:14px;font-weight:600" style-hover="background:oklch(24% 0.02 50);color:oklch(97% 0.014 75)">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="margin-top:auto;padding:44px 48px;border-top:1px solid oklch(88% 0.02 60);max-width:1000px;margin-left:auto;margin-right:auto;width:100%;box-sizing:border-box">
+    <span style="font-size:13px;color:oklch(48% 0.02 55)">© 2026 Jarrett Li</span>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      skillGroups: [
+        { title: "Design", items: ["UX Research", "Interaction Design", "Prototyping", "Visual Design"] },
+        { title: "Tools", items: ["Figma", "Framer", "Adobe CC"] },
+        { title: "Practice", items: ["Usability Testing", "Design Systems", "Storytelling"] }
+      ],
+      experience: [
+        { dates: "2025 — Now", role: "Placeholder role", company: "Placeholder company" },
+        { dates: "2023 — 2025", role: "Placeholder role", company: "Placeholder company" },
+        { dates: "2021 — 2023", role: "Placeholder role", company: "Placeholder company" }
+      ]
+    };
+  }
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body{margin:0;background:oklch(97% 0.014 75);}
+    a{color:inherit}
+    ::selection{background:oklch(70% 0.17 45 / 0.25)}
+  </style>
+</helmet>
+
+<div style="width:0;height:0;overflow:hidden;position:absolute"><x-import component-from-global-scope="image-slot" from="./image-slot.js" hint-size="0,0"></x-import></div>
+<div style="min-height:100vh;display:flex;flex-direction:column;font-family:'Manrope',sans-serif;color:oklch(24% 0.02 50)">
+
+  <nav style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:22px 48px;background:oklch(97% 0.014 75 / 0.9);backdrop-filter:blur(8px);border-bottom:1px solid oklch(88% 0.02 60)">
+    <a href="Home.dc.html" style="font-family:'Newsreader',serif;font-size:21px;font-weight:600;text-decoration:none;letter-spacing:0.01em">Jarrett Li</a>
+    <div style="display:flex;gap:34px;align-items:center;font-size:14px;font-weight:500">
+      <a href="Home.dc.html" style="text-decoration:none;color:oklch(70% 0.17 45)">Home</a>
+      <a href="Project-OpusClip.dc.html" style="text-decoration:none;color:oklch(48% 0.02 55)" style-hover="color:oklch(70% 0.17 45)">Opus Clip</a>
+      <a href="Project-Two.dc.html" style="text-decoration:none;color:oklch(48% 0.02 55)" style-hover="color:oklch(70% 0.17 45)">Project 02</a>
+      <a href="Project-Three.dc.html" style="text-decoration:none;color:oklch(48% 0.02 55)" style-hover="color:oklch(70% 0.17 45)">Project 03</a>
+      <a href="About.dc.html" style="text-decoration:none;color:oklch(48% 0.02 55)" style-hover="color:oklch(70% 0.17 45)">About</a>
+    </div>
+  </nav>
+
+  <header style="padding:120px 48px 96px;max-width:920px;margin:0 auto;text-align:left;width:100%;box-sizing:border-box">
+    <p style="font-family:'Manrope',sans-serif;font-size:14px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:oklch(54% 0.12 250);margin:0 0 20px">UI/UX Designer</p>
+    <h1 style="font-family:'Newsreader',serif;font-weight:500;font-size:56px;line-height:1.12;margin:0 0 32px;color:oklch(24% 0.02 50)">Jarrett Li</h1>
+    <p style="font-family:'Newsreader',serif;font-style:italic;font-size:24px;line-height:1.55;color:oklch(38% 0.02 55);max-width:680px;margin:0">I am a versatile designer dedicated to creating immersive, visually stunning worlds. I bridge the gap between storytelling and experience design to craft digital spaces that prioritize user happiness and emotional connection.</p>
+  </header>
+
+  <section style="padding:0 48px 40px;max-width:1180px;margin:0 auto;width:100%;box-sizing:border-box">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:36px;border-bottom:1px solid oklch(88% 0.02 60);padding-bottom:18px">
+      <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:28px;margin:0">Selected Work</h2>
+      <span style="font-size:13px;color:oklch(48% 0.02 55)">03 case studies</span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:40px">
+
+      <a href="Project-OpusClip.dc.html" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:18px;group:1" style-hover="transform:translateY(-4px)">
+        <div style="width:100%;aspect-ratio:4/3;border-radius:14px;overflow:hidden;border:1px solid oklch(88% 0.02 60)">
+          <image-slot id="home-thumb-opus" shape="rect" placeholder="Opus Clip mobile app screens"></image-slot>
+        </div>
+        <div>
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+            <span style="width:8px;height:8px;border-radius:50%;background:oklch(70% 0.17 45)"></span>
+            <span style="font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:oklch(70% 0.17 45)">UX Research · Mobile</span>
+          </div>
+          <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:22px;margin:0 0 8px">Opus Clip — AI Editing Experience</h3>
+          <p style="font-size:14.5px;line-height:1.6;color:oklch(48% 0.02 55);margin:0">Researching and designing a mobile workflow so creators can generate AI clips anywhere, without friction.</p>
+        </div>
+      </a>
+
+      <a href="Project-Two.dc.html" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:18px" style-hover="transform:translateY(-4px)">
+        <div style="width:100%;aspect-ratio:4/3;border-radius:14px;overflow:hidden;border:1px solid oklch(88% 0.02 60)">
+          <image-slot id="home-thumb-2" shape="rect" placeholder="Project 02 cover image"></image-slot>
+        </div>
+        <div>
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+            <span style="width:8px;height:8px;border-radius:50%;background:oklch(54% 0.12 250)"></span>
+            <span style="font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:oklch(54% 0.12 250)">Coming soon</span>
+          </div>
+          <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:22px;margin:0 0 8px">Project Two</h3>
+          <p style="font-size:14.5px;line-height:1.6;color:oklch(48% 0.02 55);margin:0">Case study details in progress — check back soon.</p>
+        </div>
+      </a>
+
+      <a href="Project-Three.dc.html" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:18px" style-hover="transform:translateY(-4px)">
+        <div style="width:100%;aspect-ratio:4/3;border-radius:14px;overflow:hidden;border:1px solid oklch(88% 0.02 60)">
+          <image-slot id="home-thumb-3" shape="rect" placeholder="Project 03 cover image"></image-slot>
+        </div>
+        <div>
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+            <span style="width:8px;height:8px;border-radius:50%;background:oklch(54% 0.12 250)"></span>
+            <span style="font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:oklch(54% 0.12 250)">Coming soon</span>
+          </div>
+          <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:22px;margin:0 0 8px">Project Three</h3>
+          <p style="font-size:14.5px;line-height:1.6;color:oklch(48% 0.02 55);margin:0">Case study details in progress — check back soon.</p>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <footer style="margin-top:auto;padding:56px 48px 44px;border-top:1px solid oklch(88% 0.02 60);display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;max-width:1180px;margin-left:auto;margin-right:auto;width:100%;box-sizing:border-box">
+    <span style="font-size:13px;color:oklch(48% 0.02 55)">© 2026 Jarrett Li</span>
+    <div style="display:flex;gap:26px;font-size:13px">
+      <a href="About.dc.html" style="text-decoration:none;color:oklch(48% 0.02 55)" style-hover="color:oklch(70% 0.17 45)">About</a>
+      <a href="#" style="text-decoration:none;color:oklch(48% 0.02 55)" style-hover="color:oklch(70% 0.17 45)">Email</a>
+      <a href="#" style="text-decoration:none;color:oklch(48% 0.02 55)" style-hover="color:oklch(70% 0.17 45)">LinkedIn</a>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+</body>
+</html>
