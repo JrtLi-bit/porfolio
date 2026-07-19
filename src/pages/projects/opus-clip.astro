@@ -2,7 +2,6 @@
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
-import Placeholder from '../../components/Placeholder.astro';
 
 const base = import.meta.env.BASE_URL;
 
@@ -15,6 +14,47 @@ const processLabels = [
   'Low-fidelity mockup design',
 ];
 const processSteps = processLabels.map((label, i) => ({ n: i + 1, label }));
+
+const painPoints = [
+  { title: 'Limited Access Across Devices', body: "Opus Clip did not have a mobile version at the time, which limited access for creators who wanted to review, manage, or edit clips on mobile devices." },
+  { title: 'Upload Workflow Was Not Flexible Enough', body: 'Users had to upload videos from local files instead of cloud-based sources. This created extra steps for creators who stored video content across platforms such as cloud drives, shared folders, or online content libraries.' },
+  { title: 'Manual Setup Before AI Generation', body: 'Before generating clips, users had to manually provide details such as subtitle style, video length, and video topic. This created extra setup work before users could benefit from AI assistance.' },
+];
+
+const insights = [
+  { title: 'AI workflows still need clear setup guidance', body: 'Even when AI automates editing, users still need to understand what information is required, why it matters, and how it affects the final output.' },
+  { title: 'Manual input weakens the sense of automation', body: 'If users need to provide too many details before AI can generate results, the workflow feels less intelligent and less seamless.' },
+  { title: 'Flexibility is critical for creators', body: 'Creators often work across devices, platforms, and content sources. Upload and review workflows should support different working habits rather than forcing users into one fixed process.' },
+];
+
+const opportunities = [
+  { title: 'Improve mobile accessibility', body: 'Support a mobile experience so creators can review, manage, and make quick decisions on clips more flexibly.' },
+  { title: 'Expand upload options', body: 'Allow users to import videos from both local files and cloud-based sources to reduce friction for creators who store content across multiple platforms.' },
+  { title: 'Reduce manual setup with AI auto-detection', body: 'Use AI to suggest smart defaults for subtitle style, video length, and video topic, while still allowing creators to adjust settings when needed.' },
+];
+
+const improvements = [
+  { title: 'Mobile Version', body: 'Develop a mobile-friendly version of the workflow so creators can access, review, and manage generated clips across devices.', value: 'Allows creators to work more flexibly and review content even when they are away from desktop.' },
+  { title: 'Local + Cloud Upload Support', body: 'Expand upload options to support both local files and cloud-based sources.', value: 'Reduces extra steps for creators who store videos across online platforms or shared cloud folders.' },
+  { title: 'AI Auto-Detection for Editing Preferences', body: 'Use AI to automatically suggest subtitle style, video length, and video topic based on the uploaded content.', value: 'Reduces manual setup and helps users start the AI generation process faster.' },
+  { title: 'Smart Defaults with User Control', body: 'Instead of requiring users to enter every detail manually, the system can provide recommended defaults and let creators adjust only when needed.', value: 'Makes the workflow feel more seamless while still preserving creator control.' },
+];
+
+const improvedWorkflowLabels = [
+  'Upload video from local files or cloud-based sources',
+  'AI analyzes video content automatically',
+  'System suggests subtitle style, video length, and topic',
+  'User reviews or adjusts smart defaults',
+  'AI generates short-form clip options',
+  'User reviews, edits, and exports selected clips',
+];
+const improvedWorkflowSteps = improvedWorkflowLabels.map((label, i) => ({ n: i + 1, label }));
+
+const keyLearnings = [
+  { title: 'AI products still need strong UX structure', body: 'AI can automate complex tasks, but users still need clear guidance, understandable outputs, and control over final decisions.' },
+  { title: 'Automation should reduce effort, not add setup burden', body: 'If users need to manually provide too many inputs before AI can help, the workflow may feel less intelligent.' },
+  { title: 'Creator tools need flexibility', body: 'Creators often work across devices, platforms, and file sources. A strong creator workflow should support different working habits instead of forcing a single path.' },
+];
 ---
 <Layout title="Opus Clip — Jarrett Li" screenLabel="Opus Clip case study">
   <Nav active="opus" />
@@ -48,8 +88,25 @@ const processSteps = processLabels.map((label, i) => ({ n: i + 1, label }));
   </section>
 
   <section style="padding:0 48px 64px;max-width:920px;margin:0 auto;width:100%;box-sizing:border-box">
-    <div style="width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1px solid oklch(88% 0.02 60)">
-      <Placeholder caption="Opus Clip hero mockup / cover shot" />
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+      <figure style="margin:0">
+        <div style="width:100%;aspect-ratio:375/812;border-radius:16px;overflow:hidden;border:1px solid oklch(88% 0.02 60)">
+          <img src={`${base}images/opus-clip/preview-all.svg`} alt="Preview all clips screen" style="width:100%;height:100%;object-fit:cover;display:block" />
+        </div>
+        <figcaption style="text-align:center;font-size:13px;color:oklch(48% 0.02 55);margin-top:10px">Preview all</figcaption>
+      </figure>
+      <figure style="margin:0">
+        <div style="width:100%;aspect-ratio:375/812;border-radius:16px;overflow:hidden;border:1px solid oklch(88% 0.02 60)">
+          <img src={`${base}images/opus-clip/projects-new-clips-generation.svg`} alt="Projects screen showing new clips in generation" style="width:100%;height:100%;object-fit:cover;display:block" />
+        </div>
+        <figcaption style="text-align:center;font-size:13px;color:oklch(48% 0.02 55);margin-top:10px">New clips in generation</figcaption>
+      </figure>
+      <figure style="margin:0">
+        <div style="width:100%;aspect-ratio:375/812;border-radius:16px;overflow:hidden;border:1px solid oklch(88% 0.02 60)">
+          <img src={`${base}images/opus-clip/preview-single-clip-transcript.svg`} alt="Single clip preview with transcript" style="width:100%;height:100%;object-fit:cover;display:block" />
+        </div>
+        <figcaption style="text-align:center;font-size:13px;color:oklch(48% 0.02 55);margin-top:10px">Single clip — transcript</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -76,27 +133,175 @@ const processSteps = processLabels.map((label, i) => ({ n: i + 1, label }));
     </div>
   </section>
 
-  <section style="padding:0 48px 56px;max-width:920px;margin:0 auto;width:100%;box-sizing:border-box">
-    <div style="width:100%;aspect-ratio:21/9;border-radius:16px;overflow:hidden;border:1px solid oklch(88% 0.02 60)">
-      <Placeholder caption="Research synthesis / low-fidelity mockups" />
+  <section style="padding:0 48px 56px;max-width:1200px;margin:0 auto;width:100%;box-sizing:border-box">
+    <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:26px;margin:0 0 24px;color:oklch(70% 0.17 45)">Mid-Fi Wireframes — Long Video to Shorts Flow</h2>
+    <div style="width:fit-content;display:flex;flex-direction:column;gap:8px">
+      <div style="display:flex;align-items:flex-start;gap:32px">
+        <figure style="margin:0;flex:none;width:200px">
+          <div style="width:200px;aspect-ratio:3/4;border-radius:16px;overflow:hidden;background:oklch(97% 0.014 75)">
+            <img src={`${base}images/opus-clip/wireframe-set-preference.svg`} alt="Wireframe: set preference for long to shorts" style="width:100%;height:100%;object-fit:contain;display:block" />
+          </div>
+          <figcaption style="text-align:center;font-size:13px;color:oklch(48% 0.02 55);margin-top:10px">Set preference</figcaption>
+        </figure>
+        <span style="flex:none;font-size:32px;line-height:1;color:oklch(70% 0.17 45);margin-top:110px" aria-hidden="true">→</span>
+        <figure style="margin:0;flex:none;width:200px">
+          <div style="width:200px;aspect-ratio:3/4;border-radius:16px;overflow:hidden;background:oklch(97% 0.014 75)">
+            <img src={`${base}images/opus-clip/wireframe-generation-progress.svg`} alt="Wireframe: clip generation in progress" style="width:100%;height:100%;object-fit:contain;display:block" />
+          </div>
+          <figcaption style="text-align:center;font-size:13px;color:oklch(48% 0.02 55);margin-top:10px">Generation in progress</figcaption>
+        </figure>
+      </div>
+      <div style="display:flex;justify-content:flex-end;padding-right:6px">
+        <span style="font-size:32px;line-height:1;color:oklch(70% 0.17 45);display:inline-block;transform:rotate(45deg)" aria-hidden="true">↓</span>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:32px">
+        <figure style="margin:0;flex:none;width:200px">
+          <div style="width:200px;aspect-ratio:3/4;border-radius:16px;overflow:hidden;background:oklch(97% 0.014 75)">
+            <img src={`${base}images/opus-clip/wireframe-preview-single-clip.svg`} alt="Wireframe: preview single clip" style="width:100%;height:100%;object-fit:contain;display:block" />
+          </div>
+          <figcaption style="text-align:center;font-size:13px;color:oklch(48% 0.02 55);margin-top:10px">Preview — single clip</figcaption>
+        </figure>
+        <span style="flex:none;font-size:32px;line-height:1;color:oklch(70% 0.17 45);margin-top:110px" aria-hidden="true">→</span>
+        <figure style="margin:0;flex:none;width:200px">
+          <div style="width:200px;aspect-ratio:3/4;border-radius:16px;overflow:hidden;background:oklch(97% 0.014 75)">
+            <img src={`${base}images/opus-clip/wireframe-schedule-post.svg`} alt="Wireframe: schedule post and select clip" style="width:100%;height:100%;object-fit:contain;display:block" />
+          </div>
+          <figcaption style="text-align:center;font-size:13px;color:oklch(48% 0.02 55);margin-top:10px">Schedule post</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
   <section style="padding:0 48px 64px;max-width:760px;margin:0 auto;width:100%;box-sizing:border-box">
-    <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:26px;margin:0 0 18px;color:oklch(70% 0.17 45)">Solution</h2>
-    <p style="font-size:16.5px;line-height:1.75;color:oklch(30% 0.02 50);margin:0 0 20px">Develop a mobile app with an open upload portal, so creators can upload directly from local storage instead of a cloud drive first — with AI auto-detection deciding editing details on their behalf.</p>
-    <p style="font-size:16.5px;line-height:1.75;color:oklch(30% 0.02 50);margin:0">The redesign expands upload options to support both local and cloud-based sources, and uses AI auto-detection to reduce manual setup. Instead of requiring users to enter subtitle style, video length, and topic manually, the system suggests smart defaults and lets creators adjust only when needed.</p>
+    <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:26px;margin:0 0 24px;color:oklch(54% 0.12 250)">Key Pain Points</h2>
+    {painPoints.map((point, i) => (
+      <div style={`margin-bottom:${i === painPoints.length - 1 ? '0' : '24px'}`}>
+        <p style="font-size:16px;font-weight:700;margin:0 0 8px;color:oklch(30% 0.02 50)">{i + 1}. {point.title}</p>
+        <p style="font-size:16.5px;line-height:1.75;color:oklch(30% 0.02 50);margin:0">{point.body}</p>
+      </div>
+    ))}
   </section>
 
-  <section style="padding:0 48px 96px;max-width:920px;margin:0 auto;width:100%;box-sizing:border-box">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
-      <div style="width:100%;aspect-ratio:9/16;border-radius:16px;overflow:hidden;border:1px solid oklch(88% 0.02 60)">
-        <Placeholder caption="Mobile upload flow screen" />
+  <section style="padding:0 48px 64px;max-width:760px;margin:0 auto;width:100%;box-sizing:border-box">
+    <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:26px;margin:0 0 24px;color:oklch(70% 0.17 45)">Research Insights</h2>
+    {insights.map((insight, i) => (
+      <div style={`margin-bottom:${i === insights.length - 1 ? '0' : '24px'}`}>
+        <p style="font-size:16px;font-weight:700;margin:0 0 8px;color:oklch(30% 0.02 50)">Insight {i + 1}: {insight.title}</p>
+        <p style="font-size:16.5px;line-height:1.75;color:oklch(30% 0.02 50);margin:0">{insight.body}</p>
       </div>
-      <div style="width:100%;aspect-ratio:9/16;border-radius:16px;overflow:hidden;border:1px solid oklch(88% 0.02 60)">
-        <Placeholder caption="AI auto-detect / smart defaults screen" />
+    ))}
+  </section>
+
+  <section style="padding:0 48px 64px;max-width:760px;margin:0 auto;width:100%;box-sizing:border-box">
+    <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:26px;margin:0 0 24px;color:oklch(54% 0.12 250)">Design Opportunities</h2>
+    <p style="font-size:16.5px;line-height:1.75;color:oklch(30% 0.02 50);margin:0 0 20px">Based on the research, I identified three main design opportunities.</p>
+    {opportunities.map((opp, i) => (
+      <div style={`margin-bottom:${i === opportunities.length - 1 ? '0' : '24px'}`}>
+        <p style="font-size:16px;font-weight:700;margin:0 0 8px;color:oklch(30% 0.02 50)">{i + 1}. {opp.title}</p>
+        <p style="font-size:16.5px;line-height:1.75;color:oklch(30% 0.02 50);margin:0">{opp.body}</p>
+      </div>
+    ))}
+  </section>
+
+  <section style="padding:0 48px 64px;max-width:760px;margin:0 auto;width:100%;box-sizing:border-box">
+    <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:26px;margin:0 0 18px;color:oklch(70% 0.17 45)">Solution Direction</h2>
+    <p style="font-size:16.5px;line-height:1.75;color:oklch(30% 0.02 50);margin:0 0 20px">The solution focused on reducing setup friction and making the AI-assisted editing workflow more flexible, automated, and creator-friendly.</p>
+    <p style="font-size:16.5px;line-height:1.75;color:oklch(30% 0.02 50);margin:0">Instead of requiring users to manually define every editing preference, the product could use AI to detect key video settings and provide smart defaults. This would allow creators to move faster from upload to clip review while still keeping control over final adjustments.</p>
+  </section>
+
+  <section style="padding:0 48px 64px;max-width:760px;margin:0 auto;width:100%;box-sizing:border-box">
+    <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:26px;margin:0 0 24px;color:oklch(54% 0.12 250)">Proposed Improvements</h2>
+    {improvements.map((imp, i) => (
+      <div style={`margin-bottom:${i === improvements.length - 1 ? '0' : '24px'}`}>
+        <p style="font-size:16px;font-weight:700;margin:0 0 8px;color:oklch(30% 0.02 50)">{i + 1}. {imp.title}</p>
+        <p style="font-size:16.5px;line-height:1.75;color:oklch(30% 0.02 50);margin:0 0 8px">{imp.body}</p>
+        <p style="font-size:14.5px;line-height:1.6;color:oklch(48% 0.02 55);margin:0"><strong style="color:oklch(38% 0.02 55)">User Value:</strong> {imp.value}</p>
+      </div>
+    ))}
+  </section>
+
+  <section style="padding:0 48px 96px;max-width:1200px;margin:0 auto;width:100%;box-sizing:border-box">
+    <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:26px;margin:0 0 24px;color:oklch(54% 0.12 250)">Final User Flow — Upload to AI-Generated Shorts</h2>
+    <div style="width:fit-content;display:flex;flex-direction:column;gap:8px">
+      <div style="display:flex;align-items:flex-start;gap:32px">
+        <figure style="margin:0;flex:none;width:200px">
+          <div style="width:200px;aspect-ratio:3/4;border-radius:16px;overflow:hidden;background:oklch(97% 0.014 75)">
+            <img src={`${base}images/opus-clip/final-upload.svg`} alt="Final flow: upload video" style="width:100%;height:100%;object-fit:contain;display:block" />
+          </div>
+          <figcaption style="text-align:center;font-size:13px;color:oklch(48% 0.02 55);margin-top:10px">Upload video</figcaption>
+        </figure>
+        <span style="flex:none;font-size:32px;line-height:1;color:oklch(54% 0.12 250);margin-top:110px" aria-hidden="true">→</span>
+        <figure style="margin:0;flex:none;width:200px">
+          <div style="width:200px;aspect-ratio:3/4;border-radius:16px;overflow:hidden;background:oklch(97% 0.014 75)">
+            <img src={`${base}images/opus-clip/final-set-preference-main.svg`} alt="Final flow: set preference, main settings" style="width:100%;height:100%;object-fit:contain;display:block" />
+          </div>
+          <figcaption style="text-align:center;font-size:13px;color:oklch(48% 0.02 55);margin-top:10px">Set preference — main</figcaption>
+        </figure>
+        <span style="flex:none;font-size:32px;line-height:1;color:oklch(54% 0.12 250);margin-top:110px" aria-hidden="true">→</span>
+        <figure style="margin:0;flex:none;width:200px">
+          <div style="width:200px;aspect-ratio:3/4;border-radius:16px;overflow:hidden;background:oklch(97% 0.014 75)">
+            <img src={`${base}images/opus-clip/final-set-preference-prompt.svg`} alt="Final flow: set preference, AI prompt" style="width:100%;height:100%;object-fit:contain;display:block" />
+          </div>
+          <figcaption style="text-align:center;font-size:13px;color:oklch(48% 0.02 55);margin-top:10px">Set preference — prompt</figcaption>
+        </figure>
+      </div>
+      <div style="display:flex;justify-content:flex-end;padding-right:6px">
+        <span style="font-size:32px;line-height:1;color:oklch(54% 0.12 250);display:inline-block;transform:rotate(45deg)" aria-hidden="true">↓</span>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:32px">
+        <figure style="margin:0;flex:none;width:200px">
+          <div style="width:200px;aspect-ratio:3/4;border-radius:16px;overflow:hidden;background:oklch(97% 0.014 75)">
+            <img src={`${base}images/opus-clip/final-preview-all.svg`} alt="Final flow: preview all generated clips" style="width:100%;height:100%;object-fit:contain;display:block" />
+          </div>
+          <figcaption style="text-align:center;font-size:13px;color:oklch(48% 0.02 55);margin-top:10px">Preview all clips</figcaption>
+        </figure>
+        <span style="flex:none;font-size:32px;line-height:1;color:oklch(54% 0.12 250);margin-top:110px" aria-hidden="true">→</span>
+        <figure style="margin:0;flex:none;width:200px">
+          <div style="width:200px;aspect-ratio:3/4;border-radius:16px;overflow:hidden;background:oklch(97% 0.014 75)">
+            <img src={`${base}images/opus-clip/final-preview-single-transcript.svg`} alt="Final flow: preview single clip, transcript" style="width:100%;height:100%;object-fit:contain;display:block" />
+          </div>
+          <figcaption style="text-align:center;font-size:13px;color:oklch(48% 0.02 55);margin-top:10px">Preview clip — transcript</figcaption>
+        </figure>
+        <span style="flex:none;font-size:32px;line-height:1;color:oklch(54% 0.12 250);margin-top:110px" aria-hidden="true">→</span>
+        <figure style="margin:0;flex:none;width:200px">
+          <div style="width:200px;aspect-ratio:3/4;border-radius:16px;overflow:hidden;background:oklch(97% 0.014 75)">
+            <img src={`${base}images/opus-clip/final-preview-single-clip.svg`} alt="Final flow: preview single clip, final result" style="width:100%;height:100%;object-fit:contain;display:block" />
+          </div>
+          <figcaption style="text-align:center;font-size:13px;color:oklch(48% 0.02 55);margin-top:10px">Preview clip — final</figcaption>
+        </figure>
       </div>
     </div>
+  </section>
+
+  <section style="padding:0 48px 64px;max-width:760px;margin:0 auto;width:100%;box-sizing:border-box">
+    <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:26px;margin:0 0 18px;color:oklch(70% 0.17 45)">Improved Workflow</h2>
+    <p style="font-size:16.5px;line-height:1.75;color:oklch(30% 0.02 50);margin:0 0 20px">The improved workflow would allow users to upload videos from more flexible sources, rely on AI to suggest initial editing settings, review generated clips more efficiently, and adjust details only when necessary. This direction helps shift the experience from a manual setup-heavy workflow to a more intelligent, guided, and creator-friendly AI editing process.</p>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px 32px;margin-bottom:20px">
+      {improvedWorkflowSteps.map((step) => (
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <span style="flex:none;width:26px;height:26px;border-radius:50%;background:oklch(94% 0.06 45);color:oklch(44% 0.17 45);font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px">{step.n}</span>
+          <p style="font-size:15px;line-height:1.5;margin:0;color:oklch(30% 0.02 50)">{step.label}</p>
+        </div>
+      ))}
+    </div>
+    <p style="font-size:16.5px;line-height:1.75;color:oklch(30% 0.02 50);margin:0">Compared with the original workflow, the improved experience reduces manual setup, supports more flexible content sources, and allows creators to reach the clip review stage faster.</p>
+  </section>
+
+  <section style="padding:0 48px 64px;max-width:760px;margin:0 auto;width:100%;box-sizing:border-box">
+    <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:26px;margin:0 0 18px;color:oklch(54% 0.12 250)">Impact</h2>
+    <p style="font-size:16.5px;line-height:1.75;color:oklch(30% 0.02 50);margin:0 0 16px">This work helped clarify how content creators interact with AI-generated video clips and where they experience friction in the editing workflow.</p>
+    <p style="font-size:16.5px;line-height:1.75;color:oklch(30% 0.02 50);margin:0 0 16px">The research findings supported more focused design discussions around workflow efficiency, upload flexibility, AI-assisted setup, and user control over generated results.</p>
+    <p style="font-size:16.5px;line-height:1.75;color:oklch(30% 0.02 50);margin:0">Most importantly, the project helped connect user feedback to product-level design improvements, ensuring that AI-assisted editing was not only powerful, but also understandable, controllable, and efficient for creators.</p>
+  </section>
+
+  <section style="padding:0 48px 96px;max-width:760px;margin:0 auto;width:100%;box-sizing:border-box">
+    <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:26px;margin:0 0 24px;color:oklch(70% 0.17 45)">Key Learnings</h2>
+    {keyLearnings.map((item, i) => (
+      <div style={`margin-bottom:${i === keyLearnings.length - 1 ? '0' : '24px'}`}>
+        <p style="font-size:16px;font-weight:700;margin:0 0 8px;color:oklch(30% 0.02 50)">{i + 1}. {item.title}</p>
+        <p style="font-size:16.5px;line-height:1.75;color:oklch(30% 0.02 50);margin:0">{item.body}</p>
+      </div>
+    ))}
   </section>
 
   <Footer maxWidth="920px" padding="44px 48px">
